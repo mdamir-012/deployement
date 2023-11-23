@@ -1,9 +1,12 @@
 const express =require("express")
-
+require("dotenv").config()
 const app=express();
 
 app.get('/', (req,res)=>{
     res.send({message:"Api is working"})
+})
+app.get('/test', (req,res)=>{
+    res.send({message:"Api is working"+process.env.secret})
 })
 
 app.listen(8000, ()=>{
